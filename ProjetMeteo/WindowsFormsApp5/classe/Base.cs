@@ -23,25 +23,30 @@ namespace WindowsFormsApp5
             this.checkSum = checkSum;
         }
 
-        public int getId
+        public int Id
         {
             get { return id; }
+            set { this.id = value; }
         }
-        public int getNbreData
+        public int NbreData
         {
             get { return nbreData; }
+            set { this.nbreData = value; }
         }
-        public int getType
+        public int Type
         {
             get { return type; }
+            set { this.type = value; }
         }
-        public int getData
+        public int Data
         {
             get { return data; }
+            set { this.data = value; }
         }
-        public int getCheckSum
+        public int CheckSum
         {
             get { return checkSum; }
+            set { this.checkSum = value; }
         }
     }
 }

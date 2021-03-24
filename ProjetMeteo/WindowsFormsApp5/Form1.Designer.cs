@@ -48,9 +48,8 @@
             this.grid.Location = new System.Drawing.Point(12, 48);
             this.grid.Name = "grid";
             this.grid.RowHeadersVisible = false;
-            this.grid.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.grid.Size = new System.Drawing.Size(429, 150);
-            this.grid.TabIndex = 0;
+            this.grid.Size = new System.Drawing.Size(519, 294);
+            this.grid.TabIndex = 1;
             // 
             // port
             // 
@@ -59,6 +58,7 @@
             // 
             // timer
             // 
+            this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // btStart
@@ -102,7 +102,6 @@
             this.Controls.Add(this.grid);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
 
