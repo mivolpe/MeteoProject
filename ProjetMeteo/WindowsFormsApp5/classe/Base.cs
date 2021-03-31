@@ -8,11 +8,12 @@ namespace WindowsFormsApp5
 {
     class Base
     {
-        private int id;
-        private int nbreData;
-        private int type;
-        private int data;
-        private int checkSum;
+        protected int id;
+        protected int nbreData;
+        protected int type;
+        protected int data;
+        protected int checkSum;
+        protected bool isConverted;
 
         public Base(int id, int nbreData, int type, int data, int checkSum)
         {
@@ -47,6 +48,11 @@ namespace WindowsFormsApp5
         {
             get { return checkSum; }
             set { this.checkSum = value; }
+        }
+        public bool IsConverted
+        {
+            get { return isConverted; }
+            set { this.isConverted = value; }
         }
     }
 }

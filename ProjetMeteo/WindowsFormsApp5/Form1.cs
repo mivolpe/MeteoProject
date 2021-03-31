@@ -112,17 +112,18 @@ namespace WindowsFormsApp5
                 }
                 if (id > 0 && id < 11)
                 {
-                    trame.Add(new Mesure(id, nbreData, type, data, checkSum));
+                    trame.Add(new Mesure(id, nbreData, type, data, checkSum,0,0,0,false));
                 }
                 else if (id == 50)
                 {
                     trame.Add(new Alarme(id, nbreData, type, data, checkSum));
                 }
             }
-            
         }
+
         private bool verifId (int id, int nbreData, int type, int data, int checkSum)
         {
+            //fonction qui regarde si l'id se trouve deja dans la liste d'objet. Si vrai, remplace les valeurs de data et checksum.
             bool rep = true;
             foreach (Base elem in trame)
             {
@@ -138,6 +139,8 @@ namespace WindowsFormsApp5
 
         private void dataInGrid ()
         {
+            //cette fonction affiche la liste de trame dans un datagridview. Remplace la valeur du date et checksum si les id sont égaux
+            //ajoute une ligne si l'id n'est pas présent dans le grid
 
             foreach (Base elem in trame)
             {
@@ -150,13 +153,19 @@ namespace WindowsFormsApp5
                     dt.Columns.Add("Data", typeof(int));
                     dt.Columns.Add("Checksum", typeof(int));
                     dt.Rows.Add(elem.Id, elem.NbreData, elem.Type, elem.Data, elem.CheckSum);
-
                 }
                 foreach (DataRow row in dt.Rows)
                 {
                     if (row["Id"].Equals(elem.Id))
                     {
-                        row["Data"] = elem.Data;
+                        if (!elem.IsConverted) 
+                        { 
+                            row["Data"] = elem.Data;
+                        }
+                        else
+                        {
+                            row["Data"] = row["Data"] = ((Mesure)elem).conversing();
+                        }
                         row["CheckSum"] = elem.CheckSum;
                         check = true;
                     }
@@ -167,7 +176,19 @@ namespace WindowsFormsApp5
                     dt.Rows.Add(elem.Id, elem.NbreData, elem.Type, elem.Data, elem.CheckSum);
                 }
             }
+        }
 
+        private void btConversing_Click(object sender, EventArgs e)
+        {
+            foreach(Base elem in trame)
+            {
+                if (elem.Id == nUDId.Value)
+                {
+                    ((Mesure)elem).ValMin = (int) nUDMin.Value;
+                    ((Mesure)elem).ValMax = (int) nUDMax.Value;
+                    elem.IsConverted = true;
+                }
+            }
         }
     }
 }

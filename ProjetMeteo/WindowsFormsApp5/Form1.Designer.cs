@@ -35,7 +35,17 @@
             this.btStart = new System.Windows.Forms.Button();
             this.btStop = new System.Windows.Forms.Button();
             this.btLeave = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btConversing = new System.Windows.Forms.Button();
+            this.nUDMin = new System.Windows.Forms.NumericUpDown();
+            this.nUDMax = new System.Windows.Forms.NumericUpDown();
+            this.nUDId = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDId)).BeginInit();
             this.SuspendLayout();
             // 
             // grid
@@ -63,9 +73,9 @@
             // 
             // btStart
             // 
-            this.btStart.Location = new System.Drawing.Point(669, 48);
+            this.btStart.Location = new System.Drawing.Point(580, 48);
             this.btStart.Name = "btStart";
-            this.btStart.Size = new System.Drawing.Size(119, 65);
+            this.btStart.Size = new System.Drawing.Size(64, 42);
             this.btStart.TabIndex = 1;
             this.btStart.Text = "Start";
             this.btStart.UseVisualStyleBackColor = true;
@@ -73,9 +83,9 @@
             // 
             // btStop
             // 
-            this.btStop.Location = new System.Drawing.Point(669, 133);
+            this.btStop.Location = new System.Drawing.Point(669, 48);
             this.btStop.Name = "btStop";
-            this.btStop.Size = new System.Drawing.Size(119, 65);
+            this.btStop.Size = new System.Drawing.Size(64, 42);
             this.btStop.TabIndex = 2;
             this.btStop.Text = "Stop";
             this.btStop.UseVisualStyleBackColor = true;
@@ -91,11 +101,86 @@
             this.btLeave.UseVisualStyleBackColor = true;
             this.btLeave.Click += new System.EventHandler(this.btLeave_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(617, 117);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Min";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(617, 150);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Max";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(617, 176);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(16, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Id";
+            // 
+            // btConversing
+            // 
+            this.btConversing.Location = new System.Drawing.Point(620, 225);
+            this.btConversing.Name = "btConversing";
+            this.btConversing.Size = new System.Drawing.Size(113, 37);
+            this.btConversing.TabIndex = 10;
+            this.btConversing.Text = "conversing";
+            this.btConversing.UseVisualStyleBackColor = true;
+            this.btConversing.Click += new System.EventHandler(this.btConversing_Click);
+            // 
+            // nUDMin
+            // 
+            this.nUDMin.Location = new System.Drawing.Point(669, 115);
+            this.nUDMin.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nUDMin.Minimum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            -2147483648});
+            this.nUDMin.Name = "nUDMin";
+            this.nUDMin.Size = new System.Drawing.Size(64, 20);
+            this.nUDMin.TabIndex = 11;
+            // 
+            // nUDMax
+            // 
+            this.nUDMax.Location = new System.Drawing.Point(669, 143);
+            this.nUDMax.Name = "nUDMax";
+            this.nUDMax.Size = new System.Drawing.Size(64, 20);
+            this.nUDMax.TabIndex = 12;
+            // 
+            // nUDId
+            // 
+            this.nUDId.Location = new System.Drawing.Point(669, 169);
+            this.nUDId.Name = "nUDId";
+            this.nUDId.Size = new System.Drawing.Size(64, 20);
+            this.nUDId.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.nUDId);
+            this.Controls.Add(this.nUDMax);
+            this.Controls.Add(this.nUDMin);
+            this.Controls.Add(this.btConversing);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btLeave);
             this.Controls.Add(this.btStop);
             this.Controls.Add(this.btStart);
@@ -103,7 +188,11 @@
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDId)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -115,6 +204,13 @@
         private System.Windows.Forms.Button btStart;
         private System.Windows.Forms.Button btStop;
         private System.Windows.Forms.Button btLeave;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btConversing;
+        private System.Windows.Forms.NumericUpDown nUDMin;
+        private System.Windows.Forms.NumericUpDown nUDMax;
+        private System.Windows.Forms.NumericUpDown nUDId;
     }
 }
 
