@@ -112,7 +112,7 @@ namespace WindowsFormsApp5
                 }
                 if (id > 0 && id < 11)
                 {
-                    trame.Add(new Mesure(id, nbreData, type, data, checkSum,0,0,0,false));
+                    trame.Add(new Mesure(id, nbreData, type, data, checkSum,0,0,0,0,0,false));
                 }
                 else if (id == 50)
                 {
@@ -148,11 +148,12 @@ namespace WindowsFormsApp5
                 if( dt.Rows.Count == 0)
                 {
                     dt.Columns.Add("Id", typeof(int));
-                    dt.Columns.Add("Nbre de Data", typeof(int));
-                    dt.Columns.Add("Type", typeof(int));
+                    dt.Columns.Add("Configuration", typeof(string));
+                    dt.Columns.Add("Type", typeof(string));
                     dt.Columns.Add("Data", typeof(int));
-                    dt.Columns.Add("Checksum", typeof(int));
-                    dt.Rows.Add(elem.Id, elem.NbreData, elem.Type, elem.Data, elem.CheckSum);
+                    dt.Columns.Add("Délai (en seconde)", typeof(int));
+                    dt.Columns.Add("Alarme", typeof(string));
+                    dt.Rows.Add(elem.Id, elem.isConfigurate(), elem.Type, elem.Data, 1,elem.defId0());
                 }
                 foreach (DataRow row in dt.Rows)
                 {
@@ -164,16 +165,17 @@ namespace WindowsFormsApp5
                         }
                         else
                         {
-                            row["Data"] = row["Data"] = ((Mesure)elem).conversing();
+                            row["Configuration"] = ((Mesure)elem).isConfigurate();
+                            row["Data"] = ((Mesure)elem).conversing();
+                            row["Alarme"] = ((Mesure)elem).limitAlarm();
                         }
-                        row["CheckSum"] = elem.CheckSum;
                         check = true;
                     }
                 }
 
                 if(!check)
                 {
-                    dt.Rows.Add(elem.Id, elem.NbreData, elem.Type, elem.Data, elem.CheckSum);
+                    dt.Rows.Add(elem.Id, elem.isConfigurate(), elem.Type, elem.Data, 1, elem.defId0());
                 }
             }
         }
@@ -186,6 +188,8 @@ namespace WindowsFormsApp5
                 {
                     ((Mesure)elem).ValMin = (int) nUDMin.Value;
                     ((Mesure)elem).ValMax = (int) nUDMax.Value;
+                    ((Mesure)elem).AlarmMin = (int)nUDAlarmMin.Value;
+                    ((Mesure)elem).AlarmMax = (int)nUDAlarmMax.Value;
                     elem.IsConverted = true;
                 }
             }

@@ -10,14 +10,18 @@ namespace WindowsFormsApp5
     {
         protected int valMin;
         protected int valMax;
+        protected int alarmMin;
+        protected int alarmMax;
         protected int dataConvert;
 
 
-        public Mesure(int id, int nbreData, int type, int data, int checkSum, int valMin, int valMax, int dataConvert, bool isConverted)
+        public Mesure(int id, int nbreData, int type, int data, int checkSum, int valMin, int valMax, int alarmMin, int alarmMax, int dataConvert, bool isConverted)
             : base(id, nbreData, type, data, checkSum)
         {
             this.valMin = valMin;
             this.valMax = valMax;
+            this.alarmMin = alarmMin;
+            this.alarmMax = alarmMax;
             this.dataConvert = dataConvert;
             this.isConverted = isConverted;
         }
@@ -31,6 +35,16 @@ namespace WindowsFormsApp5
         {
             get { return valMax; }
             set { this.valMax = value; }
+        }
+        public int AlarmMin
+        {
+            get { return alarmMin; }
+            set { this.alarmMin = value; }
+        }
+        public int AlarmMax
+        {
+            get { return alarmMax; }
+            set { this.alarmMax = value; }
         }
         public int DataConvert
         {
@@ -46,6 +60,25 @@ namespace WindowsFormsApp5
             dataConvert = (int)(division * (valMax - valMin) + valMin);
 
             return dataConvert;
+        }
+
+        public string  limitAlarm()
+        {
+            string rep = "";
+
+            if (isConverted)
+            {
+                if (dataConvert < alarmMin)
+                {
+                    rep = "Basse";
+                }
+                else if (dataConvert > alarmMax)
+                {
+                    rep = "Haute";
+                }
+            }
+
+            return rep;
         }
     }
 }

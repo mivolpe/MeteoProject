@@ -54,5 +54,28 @@ namespace WindowsFormsApp5
             get { return isConverted; }
             set { this.isConverted = value; }
         }
+
+        public string defId0()
+        {
+            string rep = "";
+            if( id == 0)
+            {
+                rep = "Keep alive" ;
+            }
+
+            return rep;
+        }
+
+        public string isConfigurate()
+        {
+            string rep = "Not done";
+            {
+                if (isConverted)
+                {
+                    rep = "Done";
+                }
+            }
+            return rep;
+        }
     }
 }

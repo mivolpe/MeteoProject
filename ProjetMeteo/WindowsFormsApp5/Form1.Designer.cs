@@ -42,10 +42,16 @@
             this.nUDMin = new System.Windows.Forms.NumericUpDown();
             this.nUDMax = new System.Windows.Forms.NumericUpDown();
             this.nUDId = new System.Windows.Forms.NumericUpDown();
+            this.nUDAlarmMax = new System.Windows.Forms.NumericUpDown();
+            this.nUDAlarmMin = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDId)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDAlarmMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDAlarmMin)).BeginInit();
             this.SuspendLayout();
             // 
             // grid
@@ -58,7 +64,7 @@
             this.grid.Location = new System.Drawing.Point(12, 48);
             this.grid.Name = "grid";
             this.grid.RowHeadersVisible = false;
-            this.grid.Size = new System.Drawing.Size(519, 294);
+            this.grid.Size = new System.Drawing.Size(619, 294);
             this.grid.TabIndex = 1;
             // 
             // port
@@ -73,56 +79,56 @@
             // 
             // btStart
             // 
-            this.btStart.Location = new System.Drawing.Point(580, 48);
+            this.btStart.Location = new System.Drawing.Point(682, 48);
             this.btStart.Name = "btStart";
-            this.btStart.Size = new System.Drawing.Size(64, 42);
+            this.btStart.Size = new System.Drawing.Size(137, 42);
             this.btStart.TabIndex = 1;
-            this.btStart.Text = "Start";
+            this.btStart.Text = "Démarrer";
             this.btStart.UseVisualStyleBackColor = true;
             this.btStart.Click += new System.EventHandler(this.btStart_Click);
             // 
             // btStop
             // 
-            this.btStop.Location = new System.Drawing.Point(669, 48);
+            this.btStop.Location = new System.Drawing.Point(875, 48);
             this.btStop.Name = "btStop";
-            this.btStop.Size = new System.Drawing.Size(64, 42);
+            this.btStop.Size = new System.Drawing.Size(137, 42);
             this.btStop.TabIndex = 2;
-            this.btStop.Text = "Stop";
+            this.btStop.Text = "Arrêter";
             this.btStop.UseVisualStyleBackColor = true;
             this.btStop.Click += new System.EventHandler(this.btStop_Click);
             // 
             // btLeave
             // 
-            this.btLeave.Location = new System.Drawing.Point(669, 373);
+            this.btLeave.Location = new System.Drawing.Point(893, 461);
             this.btLeave.Name = "btLeave";
             this.btLeave.Size = new System.Drawing.Size(119, 65);
             this.btLeave.TabIndex = 3;
-            this.btLeave.Text = "Leave";
+            this.btLeave.Text = "Quitter";
             this.btLeave.UseVisualStyleBackColor = true;
             this.btLeave.Click += new System.EventHandler(this.btLeave_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(617, 117);
+            this.label1.Location = new System.Drawing.Point(679, 107);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.Size = new System.Drawing.Size(70, 13);
             this.label1.TabIndex = 6;
-            this.label1.Text = "Min";
+            this.label1.Text = "Intervalle Min";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(617, 150);
+            this.label2.Location = new System.Drawing.Point(872, 107);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Max";
+            this.label2.Text = "Intervalle Max";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(617, 176);
+            this.label3.Location = new System.Drawing.Point(679, 143);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(16, 13);
             this.label3.TabIndex = 9;
@@ -130,24 +136,24 @@
             // 
             // btConversing
             // 
-            this.btConversing.Location = new System.Drawing.Point(620, 225);
+            this.btConversing.Location = new System.Drawing.Point(682, 225);
             this.btConversing.Name = "btConversing";
-            this.btConversing.Size = new System.Drawing.Size(113, 37);
+            this.btConversing.Size = new System.Drawing.Size(330, 37);
             this.btConversing.TabIndex = 10;
-            this.btConversing.Text = "conversing";
+            this.btConversing.Text = "Ajouter les configurations";
             this.btConversing.UseVisualStyleBackColor = true;
             this.btConversing.Click += new System.EventHandler(this.btConversing_Click);
             // 
             // nUDMin
             // 
-            this.nUDMin.Location = new System.Drawing.Point(669, 115);
+            this.nUDMin.Location = new System.Drawing.Point(755, 105);
             this.nUDMin.Maximum = new decimal(new int[] {
-            10000,
+            1000,
             0,
             0,
             0});
             this.nUDMin.Minimum = new decimal(new int[] {
-            10000,
+            1000,
             0,
             0,
             -2147483648});
@@ -157,23 +163,104 @@
             // 
             // nUDMax
             // 
-            this.nUDMax.Location = new System.Drawing.Point(669, 143);
+            this.nUDMax.Location = new System.Drawing.Point(948, 105);
+            this.nUDMax.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nUDMax.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
             this.nUDMax.Name = "nUDMax";
             this.nUDMax.Size = new System.Drawing.Size(64, 20);
             this.nUDMax.TabIndex = 12;
             // 
             // nUDId
             // 
-            this.nUDId.Location = new System.Drawing.Point(669, 169);
+            this.nUDId.Location = new System.Drawing.Point(755, 141);
+            this.nUDId.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.nUDId.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nUDId.Name = "nUDId";
             this.nUDId.Size = new System.Drawing.Size(64, 20);
             this.nUDId.TabIndex = 13;
+            this.nUDId.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // nUDAlarmMax
+            // 
+            this.nUDAlarmMax.Location = new System.Drawing.Point(948, 177);
+            this.nUDAlarmMax.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nUDAlarmMax.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.nUDAlarmMax.Name = "nUDAlarmMax";
+            this.nUDAlarmMax.Size = new System.Drawing.Size(64, 20);
+            this.nUDAlarmMax.TabIndex = 17;
+            // 
+            // nUDAlarmMin
+            // 
+            this.nUDAlarmMin.Location = new System.Drawing.Point(755, 177);
+            this.nUDAlarmMin.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nUDAlarmMin.Minimum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            -2147483648});
+            this.nUDAlarmMin.Name = "nUDAlarmMin";
+            this.nUDAlarmMin.Size = new System.Drawing.Size(64, 20);
+            this.nUDAlarmMin.TabIndex = 16;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(872, 179);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Alarme Max";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(679, 179);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Alarme Min";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1024, 538);
+            this.Controls.Add(this.nUDAlarmMax);
+            this.Controls.Add(this.nUDAlarmMin);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.nUDId);
             this.Controls.Add(this.nUDMax);
             this.Controls.Add(this.nUDMin);
@@ -191,6 +278,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nUDMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDId)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDAlarmMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nUDAlarmMin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,6 +300,10 @@
         private System.Windows.Forms.NumericUpDown nUDMin;
         private System.Windows.Forms.NumericUpDown nUDMax;
         private System.Windows.Forms.NumericUpDown nUDId;
+        private System.Windows.Forms.NumericUpDown nUDAlarmMax;
+        private System.Windows.Forms.NumericUpDown nUDAlarmMin;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 
