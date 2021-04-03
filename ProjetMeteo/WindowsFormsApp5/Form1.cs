@@ -104,24 +104,39 @@ namespace WindowsFormsApp5
         private void insertInObject(int id, int nbreData, int type, int data, int checkSum)
         {
             //cette fontion ajoute les trames dans chaque classe en fonction de l'id
-            if (verifId(id, nbreData, type, data, checkSum))
+            if (verifId(id, data, checkSum))
             {
                 if (id == 0)
                 {
-                    trame.Add(new Base(id, nbreData, type, data, checkSum));
+                    trame.Add(new Base(id, nbreData, type, "0", data, checkSum)); // à definir le type
                 }
                 if (id > 0 && id < 11)
                 {
-                    trame.Add(new Mesure(id, nbreData, type, data, checkSum,0,0,0,0,0,false));
+                    if (id == 1)
+                    {
+                        trame.Add(new Mesure(id, nbreData, type, "température", data, checkSum, 0, 0, 0, 0, 0, false));
+                    }
+                    else if (id == 2)
+                    {
+                        trame.Add(new Mesure(id, nbreData, type, "humidité", data, checkSum, 0, 0, 0, 0, 0, false));
+                    }
+                    else if (id == 3)
+                    {
+                        trame.Add(new Mesure(id, nbreData, type, "pression atmosphérique", data, checkSum, 0, 0, 0, 0, 0, false));
+                    }
+                    else if (id == 4)
+                    {
+                        trame.Add(new Mesure(id, nbreData, type, "luminosité", data, checkSum, 0, 0, 0, 0, 0, false));
+                    }                  
                 }
                 else if (id == 50)
                 {
-                    trame.Add(new Alarme(id, nbreData, type, data, checkSum));
+                    trame.Add(new Alarme(id, nbreData, type,"50", data, checkSum)); // à définir le type
                 }
             }
         }
 
-        private bool verifId (int id, int nbreData, int type, int data, int checkSum)
+        private bool verifId (int id, int data, int checkSum)
         {
             //fonction qui regarde si l'id se trouve deja dans la liste d'objet. Si vrai, remplace les valeurs de data et checksum.
             bool rep = true;
@@ -153,7 +168,7 @@ namespace WindowsFormsApp5
                     dt.Columns.Add("Data", typeof(int));
                     dt.Columns.Add("Délai (en seconde)", typeof(int));
                     dt.Columns.Add("Alarme", typeof(string));
-                    dt.Rows.Add(elem.Id, elem.isConfigurate(), elem.Type, elem.Data, 1,elem.defId0());
+                    dt.Rows.Add(elem.Id, elem.isConfigurate(),elem.NameType, elem.Data, 1,elem.defId0());
                 }
                 foreach (DataRow row in dt.Rows)
                 {
@@ -175,7 +190,7 @@ namespace WindowsFormsApp5
 
                 if(!check)
                 {
-                    dt.Rows.Add(elem.Id, elem.isConfigurate(), elem.Type, elem.Data, 1, elem.defId0());
+                    dt.Rows.Add(elem.Id, elem.isConfigurate(), elem.NameType, elem.Data, 1, elem.defId0());
                 }
             }
         }

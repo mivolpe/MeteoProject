@@ -15,8 +15,8 @@ namespace WindowsFormsApp5
         protected int dataConvert;
 
 
-        public Mesure(int id, int nbreData, int type, int data, int checkSum, int valMin, int valMax, int alarmMin, int alarmMax, int dataConvert, bool isConverted)
-            : base(id, nbreData, type, data, checkSum)
+        public Mesure(int id, int nbreData, int type, string nameType, int data, int checkSum, int valMin, int valMax, int alarmMin, int alarmMax, int dataConvert, bool isConverted)
+            : base(id, nbreData, type, nameType, data, checkSum)
         {
             this.valMin = valMin;
             this.valMax = valMax;
@@ -77,8 +77,9 @@ namespace WindowsFormsApp5
                     rep = "Haute";
                 }
             }
-
             return rep;
         }
+
+
     }
 }

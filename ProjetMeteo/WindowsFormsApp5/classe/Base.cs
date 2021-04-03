@@ -11,15 +11,17 @@ namespace WindowsFormsApp5
         protected int id;
         protected int nbreData;
         protected int type;
+        protected string nameType;
         protected int data;
         protected int checkSum;
         protected bool isConverted;
 
-        public Base(int id, int nbreData, int type, int data, int checkSum)
+        public Base(int id, int nbreData, int type, string nameType, int data, int checkSum)
         {
             this.id = id;
             this.nbreData = nbreData;
             this.type = type;
+            this.nameType = nameType;
             this.data = data;
             this.checkSum = checkSum;
         }
@@ -38,6 +40,11 @@ namespace WindowsFormsApp5
         {
             get { return type; }
             set { this.type = value; }
+        }
+        public string NameType
+        {
+            get { return nameType; }
+            set { this.nameType = value; }
         }
         public int Data
         {
