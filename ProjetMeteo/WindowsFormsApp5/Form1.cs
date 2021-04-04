@@ -8,17 +8,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
+using WindowsFormsApp5.classe;
 
 namespace WindowsFormsApp5
 {
     public partial class Form1 : Form
     {
         DataTable dt = new DataTable();
-        List<Base> trame = new List<Base>();
+        public static List<Base> trame = new List<Base>();
 
         public Form1()
         {
             InitializeComponent();
+            fillChart.setAxes();
         }
 
         private void btLeave_Click(object sender, EventArgs e)
@@ -48,8 +50,8 @@ namespace WindowsFormsApp5
         {
             dataInGrid();
             grid.DataSource = dt;
-
         }
+
         private void port_DataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             //cette fonction récolte les données mesurées sur le port
@@ -197,6 +199,7 @@ namespace WindowsFormsApp5
 
         private void btConversing_Click(object sender, EventArgs e)
         {
+            // cette fonction ajoute l'intervalle min - max et l'alarme min - max à l'id correspondant
             foreach(Base elem in trame)
             {
                 if (elem.Id == nUDId.Value)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp5
 {
-    class Mesure : Base
+    public class Mesure : Base
     {
         protected int valMin;
         protected int valMax;

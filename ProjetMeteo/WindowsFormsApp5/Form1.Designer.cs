@@ -46,6 +46,7 @@
             this.nUDAlarmMin = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.userGraphics1 = new WindowsFormsApp5.classe.UserGraphics();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMax)).BeginInit();
@@ -99,7 +100,7 @@
             // 
             // btLeave
             // 
-            this.btLeave.Location = new System.Drawing.Point(893, 461);
+            this.btLeave.Location = new System.Drawing.Point(682, 310);
             this.btLeave.Name = "btLeave";
             this.btLeave.Size = new System.Drawing.Size(119, 65);
             this.btLeave.TabIndex = 3;
@@ -252,11 +253,19 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Alarme Min";
             // 
+            // userGraphics1
+            // 
+            this.userGraphics1.Location = new System.Drawing.Point(1175, 48);
+            this.userGraphics1.Name = "userGraphics1";
+            this.userGraphics1.Size = new System.Drawing.Size(506, 368);
+            this.userGraphics1.TabIndex = 18;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1024, 538);
+            this.ClientSize = new System.Drawing.Size(1735, 439);
+            this.Controls.Add(this.userGraphics1);
             this.Controls.Add(this.nUDAlarmMax);
             this.Controls.Add(this.nUDAlarmMin);
             this.Controls.Add(this.label4);
@@ -304,6 +313,7 @@
         private System.Windows.Forms.NumericUpDown nUDAlarmMin;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private classe.UserGraphics userGraphics1;
     }
 }
 

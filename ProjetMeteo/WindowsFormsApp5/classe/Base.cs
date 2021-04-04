@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp5
 {
-    class Base
+    public class Base
     {
         protected int id;
         protected int nbreData;
