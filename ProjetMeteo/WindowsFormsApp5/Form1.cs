@@ -33,6 +33,7 @@ namespace WindowsFormsApp5
             //cette fontion démarre l'application
             timer.Enabled = true;
             btStart.Enabled = false;
+            btConversing.Enabled = true;
             port.DataReceived += new SerialDataReceivedEventHandler(port_DataReceived);
             port.Open();
         }
@@ -236,27 +237,34 @@ namespace WindowsFormsApp5
 
         private void btUpload_Click(object sender, EventArgs e)
         {
-            var filePath = "./../../Data.csv";
-            using (var reader = new StreamReader(filePath))
+            try
             {
-                List<string> listConfig = new List<string>();
-                while (!reader.EndOfStream)
+                var filePath = "./../../Data.csv";
+                using (var reader = new StreamReader(filePath))
                 {
-                    var line = reader.ReadLine();
-                    var values = line.Split(',');
-
-                    foreach(Base elem in trame)
+                    List<string> listConfig = new List<string>();
+                    while (!reader.EndOfStream)
                     {
-                        if (elem.Id == int.Parse(values[0]))
+                        var line = reader.ReadLine();
+                        var values = line.Split(',');
+
+                        foreach (Base elem in trame)
                         {
-                            ((Mesure)elem).ValMin = int.Parse(values[1]);
-                            ((Mesure)elem).ValMax = int.Parse(values[2]);
-                            ((Mesure)elem).AlarmMin = int.Parse(values[3]);
-                            ((Mesure)elem).AlarmMax = int.Parse(values[4]);
-                            elem.IsConverted = true;
+                            if (elem.Id == int.Parse(values[0]))
+                            {
+                                ((Mesure)elem).ValMin = int.Parse(values[1]);
+                                ((Mesure)elem).ValMax = int.Parse(values[2]);
+                                ((Mesure)elem).AlarmMin = int.Parse(values[3]);
+                                ((Mesure)elem).AlarmMax = int.Parse(values[4]);
+                                elem.IsConverted = true;
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("fichier Inexistant");
             }
         }
     }

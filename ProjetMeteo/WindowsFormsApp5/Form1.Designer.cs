@@ -140,6 +140,7 @@
             // 
             // btConversing
             // 
+            this.btConversing.Enabled = false;
             this.btConversing.Location = new System.Drawing.Point(682, 225);
             this.btConversing.Name = "btConversing";
             this.btConversing.Size = new System.Drawing.Size(330, 37);
