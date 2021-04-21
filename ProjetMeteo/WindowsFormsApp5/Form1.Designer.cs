@@ -46,7 +46,10 @@
             this.nUDAlarmMin = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.userGraphics1 = new WindowsFormsApp5.classe.UserGraphics();
+            this.btSave = new System.Windows.Forms.Button();
+            this.btUpload = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMax)).BeginInit();
@@ -253,19 +256,52 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Alarme Min";
             // 
-            // userGraphics1
+            // btSave
             // 
-            this.userGraphics1.Location = new System.Drawing.Point(1175, 48);
-            this.userGraphics1.Name = "userGraphics1";
-            this.userGraphics1.Size = new System.Drawing.Size(506, 368);
-            this.userGraphics1.TabIndex = 18;
+            this.btSave.Location = new System.Drawing.Point(12, 369);
+            this.btSave.Name = "btSave";
+            this.btSave.Size = new System.Drawing.Size(79, 47);
+            this.btSave.TabIndex = 19;
+            this.btSave.Text = "Sauvegarder";
+            this.btSave.UseVisualStyleBackColor = true;
+            this.btSave.Click += new System.EventHandler(this.btSave_Click);
+            // 
+            // btUpload
+            // 
+            this.btUpload.Location = new System.Drawing.Point(117, 369);
+            this.btUpload.Name = "btUpload";
+            this.btUpload.Size = new System.Drawing.Size(79, 47);
+            this.btUpload.TabIndex = 20;
+            this.btUpload.Text = "Charger";
+            this.btUpload.UseVisualStyleBackColor = true;
+            this.btUpload.Click += new System.EventHandler(this.btUpload_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(117, 369);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(79, 47);
+            this.button2.TabIndex = 20;
+            this.button2.Text = "Charger";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 369);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(79, 47);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Sauvegarder";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btSave_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1735, 439);
-            this.Controls.Add(this.userGraphics1);
+            this.ClientSize = new System.Drawing.Size(1084, 439);
+            this.Controls.Add(this.btUpload);
+            this.Controls.Add(this.btSave);
             this.Controls.Add(this.nUDAlarmMax);
             this.Controls.Add(this.nUDAlarmMin);
             this.Controls.Add(this.label4);
@@ -313,7 +349,10 @@
         private System.Windows.Forms.NumericUpDown nUDAlarmMin;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private classe.UserGraphics userGraphics1;
+        private System.Windows.Forms.Button btSave;
+        private System.Windows.Forms.Button btUpload;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
 

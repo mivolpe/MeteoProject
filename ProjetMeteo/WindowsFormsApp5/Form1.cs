@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
-using WindowsFormsApp5.classe;
+using System.IO;
 
 namespace WindowsFormsApp5
 {
@@ -20,7 +20,6 @@ namespace WindowsFormsApp5
         public Form1()
         {
             InitializeComponent();
-            fillChart.setAxes();
         }
 
         private void btLeave_Click(object sender, EventArgs e)
@@ -209,6 +208,54 @@ namespace WindowsFormsApp5
                     ((Mesure)elem).AlarmMin = (int)nUDAlarmMin.Value;
                     ((Mesure)elem).AlarmMax = (int)nUDAlarmMax.Value;
                     elem.IsConverted = true;
+                }
+            }
+        }
+
+        private void btSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var filePath = "./../../Data.csv";
+                using (StreamWriter writer = new StreamWriter(new FileStream(filePath, FileMode.Create, FileAccess.Write)))
+                {
+                    foreach (Base elem in trame)
+                    {
+                        if (elem.IsConverted)
+                        {
+                            writer.WriteLine(elem.Id + "," + ((Mesure)elem).ValMin + "," + ((Mesure)elem).ValMax + "," + ((Mesure)elem).AlarmMin + "," + ((Mesure)elem).AlarmMax);
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Impossible d'accéder au fichier. Vérifier qu'il ne soit pas ouvert ailleurs");
+            }
+        }
+
+        private void btUpload_Click(object sender, EventArgs e)
+        {
+            var filePath = "./../../Data.csv";
+            using (var reader = new StreamReader(filePath))
+            {
+                List<string> listConfig = new List<string>();
+                while (!reader.EndOfStream)
+                {
+                    var line = reader.ReadLine();
+                    var values = line.Split(',');
+
+                    foreach(Base elem in trame)
+                    {
+                        if (elem.Id == int.Parse(values[0]))
+                        {
+                            ((Mesure)elem).ValMin = int.Parse(values[1]);
+                            ((Mesure)elem).ValMax = int.Parse(values[2]);
+                            ((Mesure)elem).AlarmMin = int.Parse(values[3]);
+                            ((Mesure)elem).AlarmMax = int.Parse(values[4]);
+                            elem.IsConverted = true;
+                        }
+                    }
                 }
             }
         }
