@@ -9,13 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using System.IO;
+using System.Data.OleDb;
 
 namespace WindowsFormsApp5
 {
     public partial class Form1 : Form
     {
+        DataSet UserAccount = new DataSet();
         DataTable dt = new DataTable();
         public static List<Base> trame = new List<Base>();
+
+        string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;"
+                        +
+                        @"Data Source=..\..\DB_UserAccess.accdb;Cache Authentication=True";
 
         public Form1()
         {
@@ -215,6 +221,7 @@ namespace WindowsFormsApp5
 
         private void btSave_Click(object sender, EventArgs e)
         {
+            //cette fontion sauvegarde les paramètres entrés pour chaque ID dans un csv
             try
             {
                 var filePath = "./../../Data.csv";
@@ -229,14 +236,15 @@ namespace WindowsFormsApp5
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Impossible d'accéder au fichier. Vérifier qu'il ne soit pas ouvert ailleurs");
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void btUpload_Click(object sender, EventArgs e)
         {
+            //cette fonction charge les paramètres qui sont dans un fichiers csv
             try
             {
                 var filePath = "./../../Data.csv";
@@ -262,10 +270,65 @@ namespace WindowsFormsApp5
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("fichier Inexistant");
+                MessageBox.Show(ex.Message);
             }
+        }
+
+        private void createDataSet()
+        {
+            
+            DataColumn dcUserID;
+            DataColumn dcAccessID;
+
+            //creation de la table UserTable
+            DataTable UserTable = UserAccount.Tables.Add("UserTable");
+            UserTable.Columns.Add("ID", typeof(Int32));
+            UserTable.Columns.Add("UserName", typeof(string));
+            UserTable.Columns.Add("UserPassword", typeof(string));
+            UserTable.Columns.Add("AccessID", typeof(Int32));
+
+            //creation de la table AccessTable
+            DataTable AccessTable = UserAccount.Tables.Add("AccessTable");
+            AccessTable.Columns.Add("ID", typeof(Int32));
+            AccessTable.Columns.Add("Name", typeof(string));
+            AccessTable.Columns.Add("AllowCreateID", typeof(bool));
+            AccessTable.Columns.Add("AllowDestroyID", typeof(bool));
+            AccessTable.Columns.Add("AllowConfigAlarm", typeof(bool));
+            AccessTable.Columns.Add("UserCreation", typeof(Int32));
+
+            //reation des clés primaire + relation entre table
+            UserTable.PrimaryKey = new DataColumn[] { UserTable.Columns["ID"] };
+            AccessTable.PrimaryKey = new DataColumn[] { AccessTable.Columns["ID"] };
+            UserAccount.Relations.Add("UserAccess", UserTable.Columns["AccessID"], AccessTable.Columns["ID"]);
+            
+            //creation de la clé étrangère
+            dcUserID = UserAccount.Tables["UserTable"].Columns["ID"];
+            dcAccessID = UserAccount.Tables["AccessTable"].Columns["ID"];
+            ForeignKeyConstraint foreignKeyConstraint = new ForeignKeyConstraint(dcUserID, dcUserID);
+
+            //contrainte de la table UserTable
+            UserTable.Columns["UserName"].Unique = true;
+            UserTable.Columns["UserName"].AllowDBNull = false;
+
+            //contrainte de la table AccessTable
+            AccessTable.Columns["Name"].AllowDBNull = false;
+            AccessTable.Columns["AllowCreateID"].AllowDBNull = false;
+            AccessTable.Columns["AllowDestroyID"].AllowDBNull = false;
+            AccessTable.Columns["AllowConfigAlarm"].AllowDBNull = false;
+            AccessTable.Columns["UserCreation"].AllowDBNull = false;
+
+            dataAccessTable(AccessTable);
+        }
+
+        private void dataAccessTable(DataTable AccessTable)
+        {
+            AccessTable.Rows.Add(0, "AdminRights", true, true, true, true);
+            AccessTable.Rows.Add(1, "MasterRights", true, true, true, false);
+            AccessTable.Rows.Add(2, "MiddleRights", true, false, true, false);
+            AccessTable.Rows.Add(3, "BasicRights", false, false, true, false);
+            AccessTable.Rows.Add(4, "NoRights", false, false, false, false);
         }
     }
 }
