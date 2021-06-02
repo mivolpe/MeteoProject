@@ -51,8 +51,28 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.btLogin = new System.Windows.Forms.Button();
+            this.txtBPasswordLogin = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtBUsernameLogin = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btSaveUser = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.nUpDoAccess = new System.Windows.Forms.NumericUpDown();
+            this.txtBPassword = new System.Windows.Forms.TextBox();
+            this.txtBUsername = new System.Windows.Forms.TextBox();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btDelete = new System.Windows.Forms.Button();
+            this.btRead = new System.Windows.Forms.Button();
+            this.gridUser = new System.Windows.Forms.DataGridView();
+            this.labUsername = new System.Windows.Forms.Label();
+            this.labAccess = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMax)).BeginInit();
@@ -60,7 +80,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nUDAlarmMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDAlarmMin)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDoAccess)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridUser)).BeginInit();
             this.SuspendLayout();
             // 
             // grid
@@ -72,6 +97,7 @@
             this.grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid.Location = new System.Drawing.Point(7, 6);
             this.grid.Name = "grid";
+            this.grid.ReadOnly = true;
             this.grid.RowHeadersVisible = false;
             this.grid.Size = new System.Drawing.Size(640, 322);
             this.grid.TabIndex = 1;
@@ -303,13 +329,73 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(12, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(661, 360);
             this.tabControl1.TabIndex = 21;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.btLogin);
+            this.tabPage5.Controls.Add(this.txtBPasswordLogin);
+            this.tabPage5.Controls.Add(this.label10);
+            this.tabPage5.Controls.Add(this.txtBUsernameLogin);
+            this.tabPage5.Controls.Add(this.label9);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(653, 334);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Connexion";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // btLogin
+            // 
+            this.btLogin.Location = new System.Drawing.Point(195, 141);
+            this.btLogin.Name = "btLogin";
+            this.btLogin.Size = new System.Drawing.Size(118, 38);
+            this.btLogin.TabIndex = 4;
+            this.btLogin.Text = "Connexion";
+            this.btLogin.UseVisualStyleBackColor = true;
+            this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
+            // 
+            // txtBPasswordLogin
+            // 
+            this.txtBPasswordLogin.Location = new System.Drawing.Point(255, 99);
+            this.txtBPasswordLogin.Name = "txtBPasswordLogin";
+            this.txtBPasswordLogin.Size = new System.Drawing.Size(100, 20);
+            this.txtBPasswordLogin.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(160, 102);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(74, 13);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Mot de passe:";
+            // 
+            // txtBUsernameLogin
+            // 
+            this.txtBUsernameLogin.Location = new System.Drawing.Point(255, 49);
+            this.txtBUsernameLogin.Name = "txtBUsernameLogin";
+            this.txtBUsernameLogin.Size = new System.Drawing.Size(100, 20);
+            this.txtBUsernameLogin.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(144, 52);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(87, 13);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Nom d\'utilisateur:";
             // 
             // tabPage1
             // 
@@ -319,7 +405,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(653, 334);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Donnée";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
@@ -327,16 +413,174 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(192, 74);
+            this.tabPage2.Size = new System.Drawing.Size(653, 334);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Graphique";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.btSaveUser);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.nUpDoAccess);
+            this.tabPage3.Controls.Add(this.txtBPassword);
+            this.tabPage3.Controls.Add(this.txtBUsername);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(653, 334);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Ajouter utilisateur";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btSaveUser
+            // 
+            this.btSaveUser.Location = new System.Drawing.Point(284, 207);
+            this.btSaveUser.Name = "btSaveUser";
+            this.btSaveUser.Size = new System.Drawing.Size(126, 38);
+            this.btSaveUser.TabIndex = 22;
+            this.btSaveUser.Text = "Ajouter l\'utilisateur";
+            this.btSaveUser.UseVisualStyleBackColor = true;
+            this.btSaveUser.Click += new System.EventHandler(this.btSaveUser_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(246, 154);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(40, 13);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Acces:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(212, 105);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 13);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Mot de passe:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(199, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(87, 13);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Nom d\'utilisateur:";
+            // 
+            // nUpDoAccess
+            // 
+            this.nUpDoAccess.Location = new System.Drawing.Point(346, 152);
+            this.nUpDoAccess.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.nUpDoAccess.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nUpDoAccess.Name = "nUpDoAccess";
+            this.nUpDoAccess.Size = new System.Drawing.Size(64, 20);
+            this.nUpDoAccess.TabIndex = 18;
+            this.nUpDoAccess.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // txtBPassword
+            // 
+            this.txtBPassword.Location = new System.Drawing.Point(310, 105);
+            this.txtBPassword.Name = "txtBPassword";
+            this.txtBPassword.Size = new System.Drawing.Size(100, 20);
+            this.txtBPassword.TabIndex = 1;
+            // 
+            // txtBUsername
+            // 
+            this.txtBUsername.Location = new System.Drawing.Point(310, 58);
+            this.txtBUsername.Name = "txtBUsername";
+            this.txtBUsername.Size = new System.Drawing.Size(100, 20);
+            this.txtBUsername.TabIndex = 0;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.btDelete);
+            this.tabPage4.Controls.Add(this.btRead);
+            this.tabPage4.Controls.Add(this.gridUser);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(653, 334);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Liste utilisateur";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btDelete
+            // 
+            this.btDelete.Location = new System.Drawing.Point(423, 89);
+            this.btDelete.Name = "btDelete";
+            this.btDelete.Size = new System.Drawing.Size(126, 42);
+            this.btDelete.TabIndex = 2;
+            this.btDelete.Text = "Supprimer";
+            this.btDelete.UseVisualStyleBackColor = true;
+            this.btDelete.Click += new System.EventHandler(this.btDelete_Click);
+            // 
+            // btRead
+            // 
+            this.btRead.Location = new System.Drawing.Point(423, 6);
+            this.btRead.Name = "btRead";
+            this.btRead.Size = new System.Drawing.Size(126, 42);
+            this.btRead.TabIndex = 1;
+            this.btRead.Text = "Lire";
+            this.btRead.UseVisualStyleBackColor = true;
+            this.btRead.Click += new System.EventHandler(this.btRead_Click);
+            // 
+            // gridUser
+            // 
+            this.gridUser.AllowUserToAddRows = false;
+            this.gridUser.AllowUserToDeleteRows = false;
+            this.gridUser.AllowUserToResizeColumns = false;
+            this.gridUser.AllowUserToResizeRows = false;
+            this.gridUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridUser.Location = new System.Drawing.Point(6, 6);
+            this.gridUser.MultiSelect = false;
+            this.gridUser.Name = "gridUser";
+            this.gridUser.ReadOnly = true;
+            this.gridUser.RowHeadersVisible = false;
+            this.gridUser.Size = new System.Drawing.Size(411, 325);
+            this.gridUser.TabIndex = 0;
+            // 
+            // labUsername
+            // 
+            this.labUsername.AutoSize = true;
+            this.labUsername.Location = new System.Drawing.Point(939, 310);
+            this.labUsername.Name = "labUsername";
+            this.labUsername.Size = new System.Drawing.Size(73, 13);
+            this.labUsername.TabIndex = 22;
+            this.labUsername.Text = "Pas connecté";
+            // 
+            // labAccess
+            // 
+            this.labAccess.AutoSize = true;
+            this.labAccess.Location = new System.Drawing.Point(939, 336);
+            this.labAccess.Name = "labAccess";
+            this.labAccess.Size = new System.Drawing.Size(96, 13);
+            this.labAccess.TabIndex = 23;
+            this.labAccess.Text = "Acces de niveau 5";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 439);
+            this.Controls.Add(this.labAccess);
+            this.Controls.Add(this.labUsername);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btUpload);
             this.Controls.Add(this.btSave);
@@ -356,6 +600,7 @@
             this.Controls.Add(this.btStart);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDMax)).EndInit();
@@ -363,7 +608,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.nUDAlarmMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDAlarmMin)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.tabPage1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nUpDoAccess)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -395,6 +647,26 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown nUpDoAccess;
+        private System.Windows.Forms.TextBox txtBPassword;
+        private System.Windows.Forms.TextBox txtBUsername;
+        private System.Windows.Forms.Button btSaveUser;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView gridUser;
+        private System.Windows.Forms.Button btDelete;
+        private System.Windows.Forms.Button btRead;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TextBox txtBPasswordLogin;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtBUsernameLogin;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btLogin;
+        private System.Windows.Forms.Label labUsername;
+        private System.Windows.Forms.Label labAccess;
     }
 }
 

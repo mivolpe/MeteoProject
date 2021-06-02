@@ -18,3 +18,4 @@ C:\Users\Volpe\Documents\GitHub\MeteoProject\ProjetMeteo\WindowsFormsApp5\obj\De
 C:\Users\Volpe\Documents\GitHub\MeteoProject\ProjetMeteo\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.csproj.CoreCompileInputs.cache
 C:\Users\Volpe\Documents\GitHub\MeteoProject\ProjetMeteo\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.exe
 C:\Users\Volpe\Documents\GitHub\MeteoProject\ProjetMeteo\WindowsFormsApp5\obj\Debug\WindowsFormsApp5.pdb
+C:\Users\Volpe\Documents\GitHub\MeteoProject\ProjetMeteo\WindowsFormsApp5\bin\Debug\DB\DB_UserAccess.accdb
